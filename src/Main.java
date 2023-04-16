@@ -15,11 +15,11 @@ public class Main {
 
             switch (command) {
                 case 1:
-                    System.out.println("Let's get started!\nEnter a letter that might be in a word");
-                    char letter = read.next().charAt(0); // reading a first character user input
+                    System.out.println("Начнём?\nПодумай и введи букву, которая может быть в слове");
+                    char letter = read.next().charAt(0); // считываю букву, которая может быть в слове
 
                 case 2:
-                    System.out.println("Enter a word:");
+                    System.out.println("Введи слово:");
                     String word = read.next();
                     manager.addWord(word);
                     break;
@@ -30,16 +30,16 @@ public class Main {
                     manager.printAnIDEA();
                     break;
                 default :
-                    System.out.println("Wrong number!");
+                    System.out.println("Неа, нет такой команды!");
                     break;
             }
         }
     }
 
     public static void printMenu() {
-        System.out.println("\nLet's play a Hangman game!\nEnter a command number:");
-        System.out.println("\n1 - Play a game\n2 - Update list of words");
-        System.out.println("3 - How to play\n4 - Got an IDEA");
+        System.out.println("\nДавай сыграем в Виселицу!\nЖмакни номер команды:");
+        System.out.println("\n1 - Сыграть в игру\n2 - Добавить новые слова");
+        System.out.println("3 - Как вообще играть?\n4 - Пустая команда");
     }
 
 }
