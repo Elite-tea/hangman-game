@@ -5,6 +5,7 @@ public class Main {
     static Scanner read = new Scanner(System.in);
     static Manager manager = new Manager();
     static Game game = new Game();
+    static printPictures pictures = new printPictures();
 
     public static void main(String[] args) {
 
@@ -17,7 +18,7 @@ public class Main {
                 case 1:
                     System.out.println("Начнём?\nПодумай и введи букву, которая может быть в слове");
                     char letter = read.next().charAt(0); // считываю букву, которая может быть в слове
-
+                    break; // Изолировал команду 1 от команды 2.
                 case 2:
                     System.out.println("Введи слово:");
                     String word = read.next();
@@ -40,6 +41,10 @@ public class Main {
         System.out.println("\nДавай сыграем в Виселицу!\nЖмакни номер команды:");
         System.out.println("\n1 - Сыграть в игру\n2 - Добавить новые слова");
         System.out.println("3 - Как вообще играть?\n4 - Пустая команда");
+        pictures.stage0();
+        pictures.stage1();
+        pictures.stage2();
+        pictures.stage3();
+        pictures.stage4();
     }
-
 }
