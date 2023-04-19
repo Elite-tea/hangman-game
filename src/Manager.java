@@ -40,7 +40,7 @@ public class Manager {
                     Files.write(Paths.get(filePath), words.getBytes(), StandardOpenOption.APPEND);
                 }
                 catch (IOException e) {
-                    System.out.println("Ошиб_0чка");
+                    System.out.println("Ошибка");
                 }
                 System.out.println("Слово " + word + " добавлено");
             }

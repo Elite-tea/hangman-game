@@ -52,6 +52,7 @@ public class Main {
         System.out.println("\n1 - Сыграть в игру\n2 - Добавить новые слова");
         System.out.println("3 - Как вообще играть?\n4 - Улучшить игру");
     }
+
     static void playSound() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
         File f = new File("./" + "resources/8bit.wav");
         AudioInputStream audioIn = AudioSystem.getAudioInputStream(f.toURI().toURL());

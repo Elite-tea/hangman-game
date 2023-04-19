@@ -14,10 +14,9 @@ public class Game {
         System.out.println("\nСлово: ");
         printingAWord();
         boolean found;
-
-
         int counter = 6;
         int counterLetter = 0;
+
         while (true) {
             found = false;
             System.out.println("\nПодумай и введи букву, которая может быть в слове");
@@ -29,14 +28,17 @@ public class Game {
                     counterLetter++;
                 }
             }
+
             for (int i = 0; i < letters.size(); i++) {
                 guessedLetters.putIfAbsent(i, "_"); // Заполняем hashmap шаблоном пустых букв
             }
+
             System.out.println(guessedLetters.get(0) + guessedLetters.get(1) + guessedLetters.get(2) +
                     guessedLetters.get(3) + guessedLetters.get(4) + guessedLetters.get(5) +
                     guessedLetters.get(6) + guessedLetters.get(7)); // Печать слова с шаблоном
+
             if (counterLetter == 6) { // Проверка на выигрыш, если выиграл, печатается сообщение
-                System.out.println("МОЛОДЕЦ ЕБАТЬ, КРАСАВА, УБИЛ В ПУСТУЮ 5 МИНУТ СВОЕЙ ЖИЗНИ, МОГ БЫ ДВУХ ДЕТЕЙ ЗАДЕЛАТЬ, УЕБОК.");
+                System.out.println("Сегодня вешать некого :)");
                 break;
             } else {
                 if (!found) {// Проверка ошибок. Если ошибся - печатается одна из стадий виселицы
@@ -61,22 +63,23 @@ public class Game {
         }
         }
 
-
     public void printingAWord() {
         manager.readWordsFile(); // вызываю метод, чтоб при запуске игры считались слова из файла
         List<String> localListOfWords = manager.getWordsList(); // создаю новый лист, чтоб сложить туда слова
-        String randomWord = localListOfWords.get(generator.nextInt(localListOfWords.size()));
         // получаю случайное слово из листа
+        String randomWord = localListOfWords.get(generator.nextInt(localListOfWords.size()));
+
             for (int i = 0; i < randomWord.length(); i++) {
                 char letter = randomWord.charAt(i);
                 letters.add(String.valueOf(letter)); // ЗДЕСЬ NULL POINTER EXCEPTION
             } // разбиваю случайное слово по буквам
+
         String first = letters.get(0);
         String fourth = letters.get(5);
         guessedLetters.put(0,letters.get(0));
         guessedLetters.put(5,letters.get(5));
-        // 0  1  2  3  4  5  6  7
-        System.out.println(first + "_____" + fourth + "__");
+
         // печатаю слово для того, чтоб пользователь начинал угадывать буквы
+        System.out.println(first + "_____" + fourth + "__");
     }
 }
