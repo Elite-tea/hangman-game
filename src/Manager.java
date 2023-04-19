@@ -6,34 +6,28 @@ import java.util.List;
 
 public class Manager {
 
-    private HashMap<String, Character> wordsMap; // мапа слов, где ключ - слово, значения - буквы
+    private List<String> wordsList; // лист слов, считывается из файла
 
     public Manager() {
-        this.wordsMap = new HashMap<>();
+        this.wordsList = new ArrayList<>();
     }
 
-    public HashMap<String, Character> getWordsMap() {
-        return wordsMap;
+    public List<String> getWordsList() {
+        return wordsList;
     }
 
-    public void setWordsMap(HashMap<String, Character> wordsMap) {
-        this.wordsMap = wordsMap;
+    public void setWordsList(List<String> wordsList) {
+        this.wordsList = wordsList;
     }
 
-    public void readWords() { // метод для считывания слов из файла
+    public void readWordsFile() { // метод для считывания слов из файла
         List<String> content = readFileContents("resources/Words");
-        for (int i = 0; i < content.size(); i++) { // разделяю на составные части
-            String[] words = content.get(i).split(","); // делю по запятой
-            for (int j = 0; j < words.length; j++) { // достаю слова из массива
-                String word = words[j]; // получаю отдельное слово
-                for (int k = 0; k < word.length(); k++) { // делю слова на буквы
-                    char letters = (char) k; // привожу к типу char
-                    wordsMap.put(word, letters); // кладу в мапу слова и буквы
-                }
-            }
+        for (String s : content) { // разделяю на составные части
+            String[] words = s.split(","); // делю по запятой
+            Collections.addAll(wordsList, words);
         }
     }
-
+/*
     public void addWord(String word) {
         if (word.length() <= 8) { // слово должно быть не больше восьми элементов
             if (wordsMap.containsKey(word)) { // проверка есть ли подобное слово в мапе
@@ -50,6 +44,8 @@ public class Manager {
             System.out.println("Слово должно быть не больше восьми букв!");
         }
     }
+
+ */
 
     public void printHowToPlay() {
         List<String> content = readFileContents("resources/Document.txt");

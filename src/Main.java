@@ -12,17 +12,19 @@ public class Main {
         while (true) {
 
             printMenu();
+            manager.readWordsFile();
             int command = read.nextInt();
 
             switch (command) {
                 case 1:
                     System.out.println("Начнём?\nПодумай и введи букву, которая может быть в слове");
                     char letter = read.next().charAt(0); // считываю букву, которая может быть в слове
+                    game.guessingALetter(letter);
                     break; // Изолировал команду 1 от команды 2.
                 case 2:
                     System.out.println("Введи слово:");
                     String word = read.next();
-                    manager.addWord(word);
+                    // manager.addWord(word);
                     break;
                 case 3:
                     manager.printHowToPlay();

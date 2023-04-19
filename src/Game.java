@@ -1,18 +1,17 @@
-import java.util.Map;
+import java.util.List;
+import java.util.Random;
 
 public class Game {
 
     static Manager manager = new Manager();
+    static Random generator = new Random();
 
     public void guessingALetter(char letter) {
-        char word = 0;
-        Map<String, Character> localMapOfWords = manager.getWordsMap(); // создаю новую мапу, чтоб сложить туда слова
-        for (int i = 0; i < localMapOfWords.size(); i++) {
-            word = localMapOfWords.get(i); // получаю буквы
-        }
-        if (localMapOfWords.containsValue(letter)) { // если есть буква в слове, то заходим в метод
-            System.out.println(""); // затем должна быть печать буквы в формате с__а_а, с получением буквы по индексу
-        }
+        char[] letters = new char[8];
+        List<String> localListOfWords = manager.getWordsList(); // создаю новый лист, чтоб сложить туда слова
+        String randomWord = localListOfWords.get(generator.nextInt(localListOfWords.size()));
+        // получаем рандомное слово из листа
+        letters = randomWord.toCharArray();
     }
 
 }
