@@ -23,7 +23,7 @@ public class Game {
 
         while (true) {
             found = false;
-            System.out.println("\nПодумай и введи букву, которая может быть в слове");
+            System.out.println("\nПодумай и введи букву, которая может быть в слове, начальные буквы могут повторяться");
             String letter = read.next(); // считываю букву, которая может быть в слове
             for (int i = 0; i < letters.size(); i++) {
                 if (letters.get(i).equals(letter)) { // если есть буква в слове, то заполняется HashMap угаданных букв
