@@ -18,7 +18,7 @@ public class Main {
                 case 1:
                     System.out.println("Начнём?\nПодумай и введи букву, которая может быть в слове");
                     game.printingAWord();
-                    char letter = read.next().charAt(0); // считываю букву, которая может быть в слове
+                    String letter = read.next(); // считываю букву, которая может быть в слове
                     game.guessingALetter(letter);
                     break; // Изолировал команду 1 от команды 2.
                 case 2:
