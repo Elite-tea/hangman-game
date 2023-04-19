@@ -40,15 +40,14 @@ public class Manager {
                 System.out.println("Ты типо читер?\nТакое слово уже есть в списке");
             } else {
                 String filePath = "resources/Words"; // считывание файла со списком слов
-
                 try {
                     Files.write(Paths.get(filePath), words.getBytes(), StandardOpenOption.APPEND);
                 }
                 catch (IOException e) {
                     System.out.println(e);
                 }
+                System.out.println("Слово " + word + " добавлено");
             }
-            System.out.println("Слово " + word + " добавлено");
         } else {
             System.out.println("Слово должно быть не больше восьми букв! Не тупи!");
         }
