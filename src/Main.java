@@ -41,10 +41,5 @@ public class Main {
         System.out.println("\nДавай сыграем в Виселицу!\nЖмакни номер команды:");
         System.out.println("\n1 - Сыграть в игру\n2 - Добавить новые слова");
         System.out.println("3 - Как вообще играть?\n4 - Пустая команда");
-        pictures.stage0();
-        pictures.stage1();
-        pictures.stage2();
-        pictures.stage3();
-        pictures.stage4();
     }
 }
