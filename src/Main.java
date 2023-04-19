@@ -23,7 +23,7 @@ public class Main {
                 case 2:
                     System.out.println("Введи слово:");
                     String word = read.next();
-                    // manager.addWord(word);
+                    manager.addWord(word);
                     break;
                 case 3:
                     manager.printHowToPlay();

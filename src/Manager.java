@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -31,12 +33,22 @@ public class Manager {
     }
 
     public void addWord(String word) {
-        if (word.length() <= 8) { // слово должно быть не больше восьми элементов
-            if (wordsList.contains(word)) { // проверка есть ли подобное слово в мапе
+        readWordsFile();
+        String words = ",\n" + word;
+        if (word.length() == 8) { // слово должно быть не больше восьми элементов
+            if (wordsList.equals(word)) { // проверка есть ли подобное слово в мапе
                 System.out.println("Ты типо читер?\nТакое слово уже есть в списке");
             } else {
-                wordsList.add(word);
+                String filePath = "resources/Words";
+
+                try {
+                    Files.write(Paths.get(filePath), words.getBytes(), StandardOpenOption.APPEND);
+                }
+                catch (IOException e) {
+                    System.out.println(e);
+                }
             }
+            System.out.println("Слово" + word + " добавлено");
         } else {
             System.out.println("Слово должно быть не больше восьми букв!");
         }
@@ -46,8 +58,8 @@ public class Manager {
 
     public void printHowToPlay() {
         List<String> content = readFileContents("resources/Document.txt");
-        for (int i = 0; i < content.size(); i++) {
-            String[] sentences = content.get(i).split("\n"); // разделяю файл на предложения
+        for (String s : content) {
+            String[] sentences = s.split("\n"); // разделяю файл на предложения
             System.out.println(Arrays.toString(sentences)); // печать предложений
         }
     }
