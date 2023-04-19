@@ -1,7 +1,9 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Manager {
@@ -27,25 +29,20 @@ public class Manager {
             Collections.addAll(wordsList, words);
         }
     }
-/*
+
     public void addWord(String word) {
         if (word.length() <= 8) { // слово должно быть не больше восьми элементов
-            if (wordsMap.containsKey(word)) { // проверка есть ли подобное слово в мапе
+            if (wordsList.contains(word)) { // проверка есть ли подобное слово в мапе
                 System.out.println("Ты типо читер?\nТакое слово уже есть в списке");
             } else {
-                char[] wordToArray = word.toCharArray();
-                for (int i = 0; i < wordToArray.length; i++) {
-                    char letters = (char) i; // привожу к типу char
-                    wordsMap.put(word, letters); // добавляю значения в мапу
-                }
-                System.out.println("Готово!");
+                wordsList.add(word);
             }
         } else {
             System.out.println("Слово должно быть не больше восьми букв!");
         }
     }
 
- */
+
 
     public void printHowToPlay() {
         List<String> content = readFileContents("resources/Document.txt");
