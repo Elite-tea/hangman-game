@@ -1,60 +1,64 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Manager {
 
-    private HashMap<String, Character> wordsMap; // мапа слов, где ключ - слово, значения - буквы
+    private List<String> wordsList; // лист слов, считывается из файла
 
     public Manager() {
-        this.wordsMap = new HashMap<>();
+        this.wordsList = new ArrayList<>();
     }
 
-    public HashMap<String, Character> getWordsMap() {
-        return wordsMap;
+    public List<String> getWordsList() {
+        return wordsList;
     }
 
-    public void setWordsMap(HashMap<String, Character> wordsMap) {
-        this.wordsMap = wordsMap;
+    public void setWordsList(List<String> wordsList) {
+        this.wordsList = wordsList;
     }
 
-    public void readWords() { // метод для считывания слов из файла
+    public void readWordsFile() { // метод для считывания слов из файла
         List<String> content = readFileContents("resources/Words");
-        for (int i = 0; i < content.size(); i++) { // разделяю на составные части
-            String[] words = content.get(i).split(","); // делю по запятой
-            for (int j = 0; j < words.length; j++) { // достаю слова из массива
-                String word = words[j]; // получаю отдельное слово
-                for (int k = 0; k < word.length(); k++) { // делю слова на буквы
-                    char letters = (char) k; // привожу к типу char
-                    wordsMap.put(word, letters); // кладу в мапу слова и буквы
-                }
-            }
+        for (String s : content) { // разделяю на составные части
+            String[] words = s.split(","); // делю по запятой
+            Collections.addAll(wordsList, words);
         }
     }
 
     public void addWord(String word) {
-        if (word.length() <= 8) { // слово должно быть не больше восьми элементов
-            if (wordsMap.containsKey(word)) { // проверка есть ли подобное слово в мапе
+        readWordsFile();
+        String words = "\n" + word + ",";
+        if (word.length() == 8) { // слово должно быть не больше восьми элементов
+            if (wordsList.contains(word)) { // проверка есть ли подобное слово в листе
                 System.out.println("Ты типо читер?\nТакое слово уже есть в списке");
             } else {
-                char[] wordToArray = word.toCharArray();
-                for (int i = 0; i < wordToArray.length; i++) {
-                    char letters = (char) i; // привожу к типу char
-                    wordsMap.put(word, letters); // добавляю значения в мапу
+                String filePath = "resources/Words"; // считывание файла со списком слов
+                try {
+                    Files.write(Paths.get(filePath), words.getBytes(), StandardOpenOption.APPEND);
                 }
-                System.out.println("Готово!");
+                catch (IOException e) {
+                    System.out.println(e);
+                }
+                System.out.println("Слово " + word + " добавлено");
             }
         } else {
-            System.out.println("Слово должно быть не больше восьми букв!");
+            System.out.println("Слово должно быть не больше восьми букв! Не тупи!");
         }
     }
 
+
+
     public void printHowToPlay() {
         List<String> content = readFileContents("resources/Document.txt");
-        for (int i = 0; i < content.size(); i++) {
-            String[] sentences = content.get(i).split("\n"); // разделяю файл на предложения
+        for (String s : content) {
+            String[] sentences = s.split("\n"); // разделяю файл на предложения
             System.out.println(Arrays.toString(sentences)); // печать предложений
         }
     }
