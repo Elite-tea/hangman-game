@@ -1,19 +1,29 @@
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
-    static Scanner read = new Scanner(System.in);
+    static Scanner read;
     static Manager manager = new Manager();
     static Game game = new Game();
-    //static Hangman hangman = new Hangman();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
 
         while (true) {
-
+            read = new Scanner(System.in);
             printMenu();
             manager.readWordsFile();
-            int command = read.nextInt();
+            int command;
+
+            try {
+                command = read.nextInt();
+            } catch (InputMismatchException ex) {
+                System.out.println("Повтори");
+                continue;
+            }
 
             switch (command) {
                 case 1:
@@ -28,7 +38,7 @@ public class Main {
                     manager.printHowToPlay();
                     break;
                 case 4:
-                    manager.printAnIDEA();
+                    playSound();
                     break;
                 default :
                     System.out.println("Неа, нет такой команды!");
@@ -40,6 +50,13 @@ public class Main {
     public static void printMenu() {
         System.out.println("\nДавай сыграем в Виселицу!\nЖмакни номер команды:");
         System.out.println("\n1 - Сыграть в игру\n2 - Добавить новые слова");
-        System.out.println("3 - Как вообще играть?\n4 - Пустая команда");
+        System.out.println("3 - Как вообще играть?\n4 - Улучшить игру");
+    }
+    static void playSound() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+        File f = new File("./" + "resources/8bit.wav");
+        AudioInputStream audioIn = AudioSystem.getAudioInputStream(f.toURI().toURL());
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioIn);
+        clip.start();
     }
 }

@@ -13,12 +13,13 @@ public class Game {
         hangman.printHangmanZeroTry();
         System.out.println("\nСлово: ");
         printingAWord();
+        boolean found;
 
 
         int counter = 6;
         int counterLetter = 0;
         while (true) {
-            boolean found = false;
+            found = false;
             System.out.println("\nПодумай и введи букву, которая может быть в слове");
             String letter = read.next(); // считываю букву, которая может быть в слове
             for (int i = 0; i < letters.size(); i++) {
