@@ -20,10 +20,6 @@ public class Manager {
         return wordsList;
     }
 
-    public void setWordsList(List<String> wordsList) {
-        this.wordsList = wordsList;
-    }
-
     public void readWordsFile() { // метод для считывания слов из файла
         List<String> content = readFileContents("resources/Words");
         for (String s : content) { // разделяю на составные части
@@ -44,7 +40,7 @@ public class Manager {
                     Files.write(Paths.get(filePath), words.getBytes(), StandardOpenOption.APPEND);
                 }
                 catch (IOException e) {
-                    System.out.println(e);
+                    System.out.println("Ошиб_0чка");
                 }
                 System.out.println("Слово " + word + " добавлено");
             }
