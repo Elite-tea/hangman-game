@@ -1,7 +1,7 @@
-public class printPictures {
-    public void stage0() {
-        System.out.println(
-                        "⠀⢠⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+public class Hangman {
+
+    public void printHangmanZeroTry() {
+        System.out.println("⠀ ⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                                 "⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n" +
                                 "⠀⢸⣿⣇⣰⡿⠋⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀\n" +
                                 "⠀⢸⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀\n" +
@@ -16,7 +16,7 @@ public class printPictures {
                                 "⠀⠘⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
     }
 
-    public void stage1() {
+    public void printHangmanFirstTry() {
         System.out.println("⠀⠀⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n" +
                 "⠀⢸⣿⣇⣰⡿⠋⠀⠀⠀⠀  ⠀⡇⠀⠀⠀⠀\n" +
@@ -32,7 +32,7 @@ public class printPictures {
                 "⠀⠀⠿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
     }
 
-    public void stage2() {
+    public void printHangmanSecondTry() {
         System.out.println("⠀⠀⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n" +
                 "⠀⢸⣿⣇⣰⡿⠋⠀⠀⠀⠀  ⠀⡇⠀⠀⠀⠀\n" +
@@ -48,7 +48,7 @@ public class printPictures {
                 "⠀⠀⠿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
     }
 
-    public void stage3() {
+    public void printHangmanThirdTry() {
         System.out.println("⠀⠀⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n" +
                 "⠀⢸⣿⣇⣰⡿⠋⠀⠀⠀⠀  ⠀⡇⠀⠀⠀⠀\n" +
@@ -64,7 +64,7 @@ public class printPictures {
                 "⠀⠀⠿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
     }
 
-    public void stage4() {
+    public void printHangmanForthTry() {
         System.out.println("⠀⠀⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n" +
                 "⠀⢸⣿⣇⣰⡿⠋⠀⠀⠀⠀  ⠀⡇⠀⠀⠀⠀\n" +
@@ -80,7 +80,7 @@ public class printPictures {
                 "⠀⠀⠿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
     }
 
-    public void stage5() {
+    public void printHangmanFifthTry() {
         System.out.println("⠀⠀⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n" +
                 "⠀⢸⣿⣇⣰⡿⠋⠀⠀⠀⠀  ⠀⡇⠀⠀⠀⠀\n" +
@@ -96,7 +96,7 @@ public class printPictures {
                 "⠀⠀⠿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
     }
 
-    public void stage6() {
+    public void printHangmanSixthTry() {
         System.out.println("⠀⠀⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n" +
                 "⠀⢸⣿⣇⣰⡿⠋⠀⠀⠀⠀  ⠀⡇⠀⠀⠀⠀\n" +
@@ -111,4 +111,5 @@ public class printPictures {
                 "⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀ ⠉ ⠉⠀⠀⠀⠀\n" +
                 "⠀⠀⠿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
     }
+
 }

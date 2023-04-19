@@ -5,7 +5,7 @@ public class Main {
     static Scanner read = new Scanner(System.in);
     static Manager manager = new Manager();
     static Game game = new Game();
-    static printPictures pictures = new printPictures();
+    static Hangman pictures = new Hangman();
 
     public static void main(String[] args) {
 
