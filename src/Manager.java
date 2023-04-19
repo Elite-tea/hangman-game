@@ -63,10 +63,6 @@ public class Manager {
         }
     }
 
-    public void printAnIDEA() {
-        // здесь любая реализация метода, чисто по рофлу
-    }
-
     List<String> readFileContents(String path) { // метод для считывания файлов
         try {
             return Files.readAllLines(Path.of(path));
