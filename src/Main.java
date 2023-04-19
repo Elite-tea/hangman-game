@@ -9,6 +9,7 @@ public class Main {
     static Scanner read;
     static Manager manager = new Manager();
     static Game game = new Game();
+    static int soundOnOff = 0;
 
     public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
 
@@ -39,6 +40,8 @@ public class Main {
                     break;
                 case 4:
                     playSound();
+                    soundOnOff = 1;
+                    System.out.println("Музыкааааа нас связалаааааа!");
                     break;
                 default :
                     System.out.println("Неа, нет такой команды!");
@@ -54,10 +57,12 @@ public class Main {
     }
 
     static void playSound() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        File f = new File("./" + "resources/8bit.wav");
-        AudioInputStream audioIn = AudioSystem.getAudioInputStream(f.toURI().toURL());
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioIn);
-        clip.start();
+        if(soundOnOff == 0) {
+            File f = new File("./" + "resources/8bit.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(f.toURI().toURL());
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        }
     }
 }
