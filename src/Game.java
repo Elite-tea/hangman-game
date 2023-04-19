@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Game {
 
@@ -11,18 +8,58 @@ public class Game {
     static HashMap<Integer,String> guessedLetters = new HashMap<>();
     Hangman hangman = new Hangman();
 
-    public void guessingALetter(String letter) {
-        for (int i = 0; i < letters.size(); i++) {
-            if (letters.equals(letter)) { // если есть буква в слове, она должна стоять // guessedLetters.get(n).equals(letter)
-                // на месте вывода по определённому индексу, подобие sout(__a__a)
+    public void guessingALetter(Scanner read) {
+        System.out.println("Начнём?\n");
+        hangman.printHangmanZeroTry();
+        System.out.println("\nСлово: ");
+        printingAWord();
+
+
+        int counter = 6;
+        int counterLetter = 0;
+        while (true) {
+            boolean found = false;
+            System.out.println("\nПодумай и введи букву, которая может быть в слове");
+            String letter = read.next(); // считываю букву, которая может быть в слове
+            for (int i = 0; i < letters.size(); i++) {
+                if (letters.get(i).equals(letter)) { // если есть буква в слове, она должна стоять
+                    guessedLetters.put(i, letter);// на месте вывода по определённому индексу, подобие sout(__a__a)
+                    found = true;
+                    counterLetter++;
+                }
+            }
+            for (int i = 0; i < letters.size(); i++) {
+                guessedLetters.putIfAbsent(i, "_"); // Заполняем hashmap шаблоном пустых букв
+            }
+            System.out.println(guessedLetters.get(0) + guessedLetters.get(1) + guessedLetters.get(2) +
+                    guessedLetters.get(3) + guessedLetters.get(4) + guessedLetters.get(5) +
+                    guessedLetters.get(6) + guessedLetters.get(7)); // Печать слова с шаблоном
+            if (counterLetter == 6) { // Проверка на выигрыш, если выиграл, печатается сообщение
+                System.out.println("МОЛОДЕЦ ЕБАТЬ, КРАСАВА, УБИЛ В ПУСТУЮ 5 МИНУТ СВОЕЙ ЖИЗНИ, МОГ БЫ ДВУХ ДЕТЕЙ ЗАДЕЛАТЬ, УЕБОК.");
+                break;
+            } else {
+                if (!found) {// Проверка ошибок. Если ошибся - печатается одна из стадий виселицы
+                    counter--;
+
+                    if (counter == 5) {
+                        hangman.printHangmanFirstTry();
+                    } else if (counter == 4) {
+                        hangman.printHangmanSecondTry();
+                    } else if (counter == 3) {
+                        hangman.printHangmanThirdTry();
+                    } else if (counter == 2) {
+                        hangman.printHangmanForthTry();
+                    } else if (counter == 1) {
+                        hangman.printHangmanFifthTry();
+                    } else { // Проигрыш, игра окончена
+                        hangman.printHangmanSixthTry();
+                        break;
+                    }
+                }
             }
         }
-    }
+        }
 
-//    @Override
-//    public String toStringI(String ){
-//
-//    }
 
     public void printingAWord() {
         manager.readWordsFile(); // вызываю метод, чтоб при запуске игры считались слова из файла

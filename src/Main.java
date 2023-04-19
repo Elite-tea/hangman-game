@@ -5,6 +5,7 @@ public class Main {
     static Scanner read = new Scanner(System.in);
     static Manager manager = new Manager();
     static Game game = new Game();
+    //static Hangman hangman = new Hangman();
 
     public static void main(String[] args) {
 
@@ -16,10 +17,7 @@ public class Main {
 
             switch (command) {
                 case 1:
-                    System.out.println("Начнём?\nПодумай и введи букву, которая может быть в слове");
-                    game.printingAWord();
-                    String letter = read.next(); // считываю букву, которая может быть в слове
-                    game.guessingALetter(letter);
+                    game.guessingALetter(read);
                     break; // Изолировал команду 1 от команды 2.
                 case 2:
                     System.out.println("Введи слово:");
