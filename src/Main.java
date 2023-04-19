@@ -12,7 +12,6 @@ public class Main {
         while (true) {
 
             printMenu();
-            manager.readWordsFile();
             int command = read.nextInt();
 
             switch (command) {
