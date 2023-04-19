@@ -34,12 +34,12 @@ public class Manager {
 
     public void addWord(String word) {
         readWordsFile();
-        String words = ",\n" + word;
+        String words = "\n" + word + ",";
         if (word.length() == 8) { // слово должно быть не больше восьми элементов
-            if (wordsList.equals(word)) { // проверка есть ли подобное слово в мапе
+            if (wordsList.contains(word)) { // проверка есть ли подобное слово в листе
                 System.out.println("Ты типо читер?\nТакое слово уже есть в списке");
             } else {
-                String filePath = "resources/Words";
+                String filePath = "resources/Words"; // считывание файла со списком слов
 
                 try {
                     Files.write(Paths.get(filePath), words.getBytes(), StandardOpenOption.APPEND);
@@ -48,9 +48,9 @@ public class Manager {
                     System.out.println(e);
                 }
             }
-            System.out.println("Слово" + word + " добавлено");
+            System.out.println("Слово " + word + " добавлено");
         } else {
-            System.out.println("Слово должно быть не больше восьми букв!");
+            System.out.println("Слово должно быть не больше восьми букв! Не тупи!");
         }
     }
 

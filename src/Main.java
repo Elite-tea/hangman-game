@@ -5,18 +5,19 @@ public class Main {
     static Scanner read = new Scanner(System.in);
     static Manager manager = new Manager();
     static Game game = new Game();
-    static Hangman pictures = new Hangman();
 
     public static void main(String[] args) {
 
         while (true) {
 
             printMenu();
+            manager.readWordsFile();
             int command = read.nextInt();
 
             switch (command) {
                 case 1:
                     System.out.println("Начнём?\nПодумай и введи букву, которая может быть в слове");
+                    game.printingAWord();
                     char letter = read.next().charAt(0); // считываю букву, которая может быть в слове
                     game.guessingALetter(letter);
                     break; // Изолировал команду 1 от команды 2.
