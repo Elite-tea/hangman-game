@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Manager {
 
-    private final List<String> wordsList; // лист слов, считывается из файла
+    private List<String> wordsList; // лист слов, считывается из файла
 
     public Manager() {
         this.wordsList = new ArrayList<>();
