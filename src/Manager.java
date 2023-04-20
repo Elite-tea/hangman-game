@@ -9,8 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Manager {
-
-    private List<String> wordsList; // лист слов, считывается из файла
+    private final List<String> wordsList; // лист слов, считывается из файла
 
     public Manager() {
         this.wordsList = new ArrayList<>();
@@ -48,8 +47,6 @@ public class Manager {
             System.out.println("Слово должно быть не больше восьми букв! Не тупи!");
         }
     }
-
-
 
     public void printHowToPlay() {
         List<String> content = readFileContents("resources/Document.txt");

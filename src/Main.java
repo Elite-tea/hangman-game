@@ -45,6 +45,8 @@ public class Main {
                     soundOnOff = 1;
                     System.out.println("Музыкааааа нас связалаааааа!");
                     break;
+                case 5:
+                    return;
                 default :
                     System.out.println("Неа, нет такой команды!");
                     break;
@@ -53,9 +55,9 @@ public class Main {
     }
 
     public static void printMenu() {
-        System.out.println("\nДавай сыграем в Виселицу!\nЖмакни номер команды:");
-        System.out.println("\n1 - Сыграть в игру\n2 - Добавить новые слова");
-        System.out.println("3 - Как вообще играть?\n4 - Улучшить игру");
+        System.out.println("\nДавай сыграем в Виселицу!\nЖмакни номер команды: \n" +
+                "1 - Сыграть в игру\n2 - Добавить новые слова \n" +
+                "3 - Как вообще играть?\n4 - Улучшить игру");
     }
 
     static void playSound() throws LineUnavailableException, IOException, UnsupportedAudioFileException {

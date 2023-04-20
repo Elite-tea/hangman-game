@@ -23,9 +23,11 @@ public class Game {
 
             for (int i = 0; i < letters.size(); i++) {
                 if (letters.get(i).equals(letter)) { // если есть буква в слове, то заполняется HashMap угаданных букв
+                    if (!letters.get(i).equals(guessedLetters.get(i))) {
+                        counterLetter++; // инкрементируем счётчик букв в слове
+                    }
                     guessedLetters.put(i, letter);
                     found = true;
-                    counterLetter++; // инкрементируем счётчик букв в слове
                 }
             }
 
@@ -39,8 +41,7 @@ public class Game {
 
             if (counterLetter == 6) { // проверка на выигрыш, если выиграл, печатается сообщение
                 System.out.println("Сегодня вешать некого :)");
-                letters.clear();
-                guessedLetters.clear();
+                clear();
                 break;
             } else {
                 if (!found) {// Проверка ошибок. Если ошибся - печатается одна из стадий виселицы
@@ -58,13 +59,17 @@ public class Game {
                         hangman.printHangmanFifthTry();
                     } else { // проигрыш, игра окончена
                         hangman.printHangmanSixthTry();
-                        letters.clear();
-                        guessedLetters.clear();
+                        clear();
                         break;
                     }
                 }
             }
         }
+    }
+
+    private void clear() {
+        letters.clear();
+        guessedLetters.clear();
     }
 
     public void printingAWord() {
@@ -80,6 +85,7 @@ public class Game {
 
         String first = letters.get(0); // по задумке печатается элемент под нулевым и пятым индексами
         String fourth = letters.get(5); // в дальнейшем планирую исправить, чтоб буквы тоже печатались рандомные
+
         guessedLetters.put(0,letters.get(0));
         guessedLetters.put(5,letters.get(5));
 
