@@ -1,5 +1,4 @@
 public class Hangman {
-
     public void printHangmanZeroTry() {
         System.out.println("⠀ ⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n" +
