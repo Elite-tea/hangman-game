@@ -20,7 +20,7 @@ public class Manager {
         return wordsList;
     }
 
-    public void readWordsFile() { // метод для считывания слов из файла
+    public void readWordsFile() {
         List<String> content = readFileContents("resources/Words");
         for (String s : content) { // разделяю на составные части
             String[] words = s.split(","); // делю по запятой
@@ -35,11 +35,11 @@ public class Manager {
             if (wordsList.contains(word)) { // проверка есть ли подобное слово в листе
                 System.out.println("Ты типо читер?\nТакое слово уже есть в списке");
             } else {
-                String filePath = "resources/Words"; // считывание файла со списком слов
+                String filePath = "resources/Words"; // считываю файла со списком слов
                 try {
                     Files.write(Paths.get(filePath), words.getBytes(), StandardOpenOption.APPEND);
                 }
-                catch (IOException e) {
+                catch (IOException e) { // отлавливаю исключения
                     System.out.println("Ошибка");
                 }
                 System.out.println("Слово " + word + " добавлено");
