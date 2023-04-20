@@ -7,16 +7,22 @@ import java.util.Scanner;
 public class Main {
 
     static Scanner read;
+
     static Manager manager = new Manager();
+
     static Game game = new Game();
+
     static int soundOnOff = 0;
 
-    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public static void main(String[] args)
+            throws UnsupportedAudioFileException, LineUnavailableException, IOException {
 
         while (true) {
-            read = new Scanner(System.in);
+
             printMenu();
             manager.readWordsFile();
+
+            read = new Scanner(System.in);
             int command;
 
             try {
@@ -29,7 +35,7 @@ public class Main {
             switch (command) {
                 case 1:
                     game.guessingALetter(read);
-                    break; // Изолировал команду 1 от команды 2.
+                    break;
                 case 2:
                     System.out.println("Введи слово:");
                     String word = read.next();
@@ -65,4 +71,5 @@ public class Main {
             clip.start();
         }
     }
+
 }
